@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FruitsController < ApplicationController
-  before_action :set_fruit, only: %i[ show update destroy ]
+  before_action :set_fruit, only: %i[show update destroy]
 
   # GET /fruits
   # GET /fruits.json
@@ -10,6 +12,7 @@ class FruitsController < ApplicationController
   # GET /fruits/1
   # GET /fruits/1.json
   def show
+    render json: @fruit, status: :ok
   end
 
   # POST /fruits
@@ -41,13 +44,14 @@ class FruitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fruit
-      @fruit = Fruit.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def fruit_params
-      params.require(:fruit).permit(:name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_fruit
+    @fruit = Fruit.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def fruit_params
+    params.permit(:name, :description)
+  end
 end
