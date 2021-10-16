@@ -1,0 +1,5 @@
+APP_URL=https://agroorganicobackend.herokuapp.com/
+
+GITHUB_USERNAME=bragars
+
+STORAGE_TYPE=LOCAL
