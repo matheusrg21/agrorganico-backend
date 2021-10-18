@@ -2,4 +2,6 @@
 
 class ShoppingList < ApplicationRecord
   belongs_to :user
+
+  serialize :itens, Array
 end
