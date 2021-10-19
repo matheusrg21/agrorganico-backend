@@ -5,6 +5,6 @@ class Fruit < ApplicationRecord
   has_one_attached :photo
 
   def image_url
-    rails_blob_path(self.photo, disposition: "attachment", only_path: true)
+    rails_blob_path(photo, disposition: 'attachment', only_path: true)
   end
 end
