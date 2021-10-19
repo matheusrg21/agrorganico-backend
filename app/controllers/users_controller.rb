@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :authorize_request, except: :create
-  before_action :find_user, except: %i[create index]
+  before_action :set_user, except: %i[create index]
 
   # GET /users
   def index
@@ -41,15 +41,11 @@ class UsersController < ApplicationController
 
   private
 
-  def find_user
-    @user = User.find_by_name!(params[:_name])
-  rescue ActiveRecord::RecordNotFound
-    render json: { errors: 'Usuário não encontrado' }, status: :not_found
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def user_params
-    params.permit(
-      :avatar, :name, :email, :password, :password_confirmation
-    )
+    params.permit(:name, :email, :password)
   end
 end

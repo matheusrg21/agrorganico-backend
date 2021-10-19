@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
   resources :fruits
-  resources :users do
-    resources :shopping_lists
-  end
+  resources :users
+  resources :shopping_lists
+
   post '/auth/login', to: 'authentication#login'
   get '/*a', to: 'application#not_found'
 end
