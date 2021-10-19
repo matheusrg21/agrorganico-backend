@@ -19,7 +19,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list = ShoppingList.new(shopping_list_params)
 
     if @shopping_list.save
-      render :show, status: :created, location: @shopping_list
+      render :show, status: :created
     else
       render json: @shopping_list.errors, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ShoppingListsController < ApplicationController
   # PATCH/PUT /shopping_lists/1.json
   def update
     if @shopping_list.update(shopping_list_params)
-      render :show, status: :ok, location: @shopping_list
+      render :show, status: :ok
     else
       render json: @shopping_list.errors, status: :unprocessable_entity
     end
@@ -50,6 +50,6 @@ class ShoppingListsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def shopping_list_params
-    params.require(:shopping_list).permit(:itens, :user_id)
+    params.permit(:user_id, itens: [])
   end
 end

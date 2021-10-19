@@ -3,9 +3,9 @@
 class FruitSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
-  attributes :photoa
+  attributes :photo, :image_url
 
-  def photo
-    rails_blob_path(object.photo, only_path: true) if object.photo.attached?
+  def photo_url
+    url_for(object.image_url)
   end
 end
