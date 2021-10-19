@@ -19,7 +19,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list = ShoppingList.new(shopping_list_params)
 
     if @shopping_list.save
-      render :show, status: :created, location: @shopping_list
+      render :show, status: :created
     else
       render json: @shopping_list.errors, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ShoppingListsController < ApplicationController
   # PATCH/PUT /shopping_lists/1.json
   def update
     if @shopping_list.update(shopping_list_params)
-      render :show, status: :ok, location: @shopping_list
+      render :show, status: :ok
     else
       render json: @shopping_list.errors, status: :unprocessable_entity
     end
