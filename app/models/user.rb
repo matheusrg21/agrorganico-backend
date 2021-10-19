@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  belongs_to :shopping_list, optional: true
+  has_many :shopping_lists
 
   def password_token_valid?
     (reset_password_sent_at + 1.hour) > Time.zone.now

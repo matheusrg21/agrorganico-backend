@@ -6,7 +6,7 @@ class ShoppingListsController < ApplicationController
   # GET /shopping_lists
   # GET /shopping_lists.json
   def index
-    @shopping_lists = ShoppingList.all
+    @shopping_lists = ShoppingList.where(user_id: params[:user_id].to_i).all
   end
 
   # GET /shopping_lists/1
