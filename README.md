@@ -3,7 +3,8 @@
 # README
 Leitura explicando como executar o código fonte.
 
-Essa é uma API para o projeto Agroôrganico para o curso SI ( Sistema de Informação )
+Essa é uma API para o projeto Agroôrganico para o curso SI ( Sistema de Informação ) com o propósito de oferecer uma ferramente que possibilita criação de Listas de compras, localização de feiras, informações nutricionais e gerais de alimentos e produtos.
+
 
 Necessidades para execução.
 Versão do Ruby e versão condizente com o projeto
@@ -26,7 +27,10 @@ Download do postgres (https://www.postgresql.org/download/)
 
 
 Git clone para captura do código fonte local.
-rails s para execução após as instruções localizadas acima.
+
+    rails s 
+
+para execução após as instruções localizadas acima.
 
 Link da API, requisições FREE
 	
